@@ -10,21 +10,21 @@ Please implement the following:
 1) An HTTP server with 2 endpoints:
 * GET /time
 * POST /timezone
-* For full details, please see the [API](README.md#http-api) section.  
+* For full details, please see the [API](#http-api) section.  
 
 2) A Websocket server which sends periodical time updates to each connected client.
 * An update should be sent every 10 seconds.
-* The update sent should be of the same structure as the response produced by the [GET /time](README.md#get-time) request.
+* The update sent should be of the same structure as the response produced by the [GET /time](#get-time) request.
 * A client can also send a 'setTimezone' message to set the time zone used in the updates.
-  * see [Websocket API](README.md#websocket-api).
-* If the client didn't set the time zone, the time zone to be used is the _global time zone_ set in [POST /timezone](README.md#post-timezone).
+  * see [Websocket API](#websocket-api).
+* If the client didn't set the time zone, the time zone to be used is the _global time zone_ set in [POST /timezone](#post-timezone).
 
 ## Details 
 * Use whatever libraries you need. There's no need to implement an HTTP server, a Websocket server or anything else from scratch.
 * The server state (e.g the global time zone) can remain in memory and doesn't need to be persisted to a database.  
 * The time zone annotation used in the examples is just a suggestion. Feel free to use whatever annotation or convention you want.
 * Time format - in the examples we use a specific data/time format. Feel free to change this to your liking.
-* It is ok to assume that requests to the [POST /timezone](README.md#post-timezone) endpoint are not made concurrently. 
+* It is ok to assume that requests to the [POST /timezone](#post-timezone) endpoint are not made concurrently. 
 
 ## How to submit  
 * Clone this repo.
@@ -35,7 +35,7 @@ Please implement the following:
 ## HTTP API
 #### #GET /time  
 Get the current time.  
-If no _timezone_ parameter has been given, the time zone to be used is the _global time zone_ set by the [POST /timezone](README.md#post-timezone) request. 
+If no _timezone_ parameter has been given, the time zone to be used is the _global time zone_ set by the [POST /timezone](#post-timezone) request. 
 
 The default _global time zone_ (in case it was not set) is the local time zone.
 
@@ -59,7 +59,7 @@ Response example:
 ```
 
 #### #POST /timezone
-Set the global time zone to be used in the response for the [GET /time](README.md#get-time) request.
+Set the global time zone to be used in the response for the [GET /time](#get-time) request.
 
 **_Parameters_**:  
 timezone - the time zone to use.  
@@ -85,7 +85,7 @@ setTimezone
 
 **_Parameters_**:  
 timezone - the time zone to use.  
-For description, see _timezone_ param in [POST /timezone](README.md#post-timezone).
+For description, see _timezone_ param in [POST /timezone](#post-timezone).
 
 example: 
 ```
